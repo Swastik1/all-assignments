@@ -29,7 +29,7 @@ app.post('/admin/login', (req, res) => {
   if (isAdmin) {
     res.status(200).json({message: 'Logged in successfully'})
   } else {
-    res.status(404).send();02
+    res.status(404).send();
   }
 
  
@@ -37,7 +37,7 @@ app.post('/admin/login', (req, res) => {
 
 app.post('/admin/courses', (req, res) => {
   // logic to create a course
-  
+
 });
 
 app.put('/admin/courses/:courseId', (req, res) => {
