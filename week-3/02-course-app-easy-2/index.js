@@ -10,10 +10,20 @@ let COURSES = [];
 // Admin routes
 app.post('/admin/signup', (req, res) => {
   // logic to sign up admin
+  const {username,email,password} = req.body;
+  const adminExists = ADMINS.find(a => a.email === email && a.username === username);
+  if (adminExists) {
+    res.status(400).json({message : 'Admin already exists'});
+  } else {
+    const admin = {username,password};
+    ADMINS.push(admin);
+    res.status(200).json({message:'Admin created succesfully'})
+  }
 });
 
 app.post('/admin/login', (req, res) => {
   // logic to log in admin
+
 });
 
 app.post('/admin/courses', (req, res) => {
